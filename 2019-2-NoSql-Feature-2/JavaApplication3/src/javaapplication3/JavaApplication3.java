@@ -43,11 +43,14 @@ public class JavaApplication3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Mongo m = new Mongo();
+        m.setVisible(true);
+        
+        /*/ TODO code application logic here
         MongoClient mongoClient = new MongoClient("localhost", 27017);
         Consumer<String> action = System.out::println;
         mongoClient.listDatabaseNames().forEach(action);
-
+      
         // connect to database
         MongoDatabase database = mongoClient.getDatabase("veterinaria");
         // make a Collection if it doesn't exist
@@ -55,6 +58,7 @@ public class JavaApplication3 {
             database.createCollection("customers");
         // display all existing collections for current database
         database.listCollectionNames().forEach(action);
+           System.out.println(database.toString());
         
         // Insert customer
         MongoCollection<Document> collection = database.getCollection("customers");
@@ -75,7 +79,7 @@ public class JavaApplication3 {
                     new Document("$set", new Document("name", "New John"))
             ); // Update the checksum into the database
         System.out.println("Update with name: " + result.wasAcknowledged());
-	System.out.println("Number of Record Modified: " + result.getModifiedCount());
+	System.out.println("Number of Record Modified: " + result.getModifiedCount());*/
     }
     
 }
